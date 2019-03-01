@@ -322,7 +322,7 @@ describe('html-to-text', function() {
         <p>Lorem ipsum dolor sit amet</p> \
         <p><strong>Lorem ipsum dolor sit amet.</strong></p> \
         <ul> \
-          <li>run in the park <span style="color:#888888;">(in progress)</span></li> \
+          <li>run in the park (in progress)</li> \
         </ul> \
       ';
       var resultExpected = 'Good morning Jacob, Lorem ipsum dolor sit amet\n\nLorem ipsum dolor sit amet.\n\n * run in the park (in progress)';
@@ -592,7 +592,7 @@ describe('html-to-text', function() {
 
   describe('whitespace', function() {
     it('should not be ignored inside a whitespace-only node', function() {
-      var testString = 'foo<span> </span>bar';
+      var testString = 'foo bar';
       expect(htmlToText.fromString(testString)).to.equal('foo bar');
     });
   });
