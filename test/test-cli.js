@@ -81,18 +81,18 @@ describe('cli arguments', function() {
       done);
   });
 
-  // it('should support --tables definitions with commas', function(done) {
-  //   var expectedTxt = fs.readFileSync('test/test.txt', 'utf8');
-  //
-  //   function runWithArgs(args, callback) {
-  //     exec('cat test/test.html | node bin/cli.js ' + args, callback);
-  //   }
-  //
-  //   runWithArgs('--tables=#invoice,.address', function callback(error, stdout, stderr) {
-  //     expect(error).to.be.a('null');
-  //     expect(stderr).to.equal('');
-  //     expect(stdout).to.equal(expectedTxt + '\n');
-  //     done(error);
-  //   });
-  // });
+  it('should support --tables definitions with commas', function(done) {
+    var expectedTxt = fs.readFileSync('test/test.txt', 'utf8');
+
+    function runWithArgs(args, callback) {
+      exec('cat test/test.html | node bin/cli.js ' + args, callback);
+    }
+
+    runWithArgs('--tables=#invoice,.address', function callback(error, stdout, stderr) {
+      expect(error).to.be.a('null');
+      expect(stderr).to.equal('');
+      expect(stdout).to.equal(expectedTxt + '\n');
+      done(error);
+    });
+  });
 });
